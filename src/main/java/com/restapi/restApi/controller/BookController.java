@@ -6,7 +6,7 @@
 package com.restapi.restApi.controller;
 
 import com.restapi.restApi.payload.Book;
-import com.restapi.restApi.payload.service.BookService;
+import com.restapi.restApi.service.BookService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
