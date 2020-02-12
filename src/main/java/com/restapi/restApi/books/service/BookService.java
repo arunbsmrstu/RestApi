@@ -14,7 +14,7 @@ import java.util.List;
 public interface BookService {
     public List<BookDto> addBook(BookRequest book);
     public List<BookDto> updateBook(BookRequest book);
-    public ServiceResponse deleteBook(Integer id);
+    public ServiceResponse deleteBook(String bookId);
     public List<BookDto> searchBook(BookDto book);
     public List<BookDto> searchBookById(Integer id);
     public List<BookDto> searchBookByBookId(String bookId);

@@ -48,12 +48,24 @@ public class BookServiceImp implements BookService{
 
     @Override
     public List<BookDto> updateBook(BookRequest book) {
-        return null;
+        List<BookDto> returnList= new ArrayList();
+        BookDto bookDto= new BookDto();
+        Book books=bookRepository.findBybookId(book.getBookId());
+        if(books!=null && books.getId()>0){
+            books=bookRepository.save(books);
+            BeanUtils.copyProperties(book, bookDto);
+            returnList.add(bookDto);
+        }
+        return returnList;
     }
 
     @Override
-    public ServiceResponse deleteBook(Integer id) {
-        return null;
+    public ServiceResponse deleteBook(String bookId) {
+        Book books=bookRepository.findBybookId(bookId);
+        if(books!=null && books.getId()>0){
+            bookRepository.delete(books);
+        }
+        return new ServiceResponse();
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Arun
  */
 public class BookRequest implements Serializable{
-    private int id;
+    private String bookId;
     private String name;
     private String authors;
     private String description;
@@ -20,19 +20,19 @@ public class BookRequest implements Serializable{
     public BookRequest() {
     }
 
-    public BookRequest(int id, String name, String authors, String description) {
-        this.id = id;
+    public BookRequest(String bookId, String name, String authors, String description) {
+        this.bookId = bookId;
         this.name = name;
         this.authors = authors;
         this.description = description;
     }
 
-    public int getId() {
-        return id;
+    public String getBookId() {
+        return bookId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 
     public String getName() {
