@@ -44,7 +44,7 @@ public class User {
         this.encryptedPassword = encryptedPassword;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 

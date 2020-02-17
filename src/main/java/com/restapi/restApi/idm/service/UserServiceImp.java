@@ -12,12 +12,16 @@ import com.restapi.restApi.idm.repository.UserRepository;
 import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImp implements UserService {
     @Autowired
     private UserRepository userRepoaitory;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Override
     public UserRes createUser(UserReq userReq) {
@@ -25,6 +29,7 @@ public class UserServiceImp implements UserService {
         if(userReq!=null){
             User user=new User();
             BeanUtils.copyProperties(userReq, user);
+            user.setEncryptedPassword(bCryptPasswordEncoder.encode(userReq.getPassword()));
             user=userRepoaitory.save(user);
             BeanUtils.copyProperties(user, returnValue);
         }
